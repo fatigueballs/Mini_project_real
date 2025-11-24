@@ -5,11 +5,6 @@
     android:orientation="vertical"
     android:background="#F5F5F5">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="56dp"
-        android:orientation="vertical"></LinearLayout>
-
     <include layout="@layout/header"/>
 
     <TextView

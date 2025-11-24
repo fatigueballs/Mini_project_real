@@ -114,10 +114,34 @@
                 android:textSize="12sp" />
         </LinearLayout>
 
-        <Space
+        <LinearLayout
+            android:id="@+id/btn_about"
             android:layout_width="140dp"
             android:layout_height="140dp"
-            android:layout_margin="12dp" />
+            android:layout_margin="12dp"
+            android:background="@drawable/ic_launcher_background"
+            android:backgroundTint="#FFFFFF"
+            android:clickable="true"
+            android:elevation="4dp"
+            android:focusable="true"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:src="@drawable/contact"
+                app:tint="@color/icon_color_dark" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/spartan_extrabold"
+                android:text="ABOUT US"
+                android:textColor="@color/icon_color_dark"
+                android:textSize="12sp" />
+        </LinearLayout>
 
     </GridLayout>
 

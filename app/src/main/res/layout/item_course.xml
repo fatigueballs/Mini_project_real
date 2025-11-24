@@ -32,7 +32,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Longer description text goes here..."
-            android:textColor="#555555"
+            android:textColor="#212121"
             android:textSize="14sp"
             android:lineSpacingExtra="4dp"
             android:justificationMode="inter_word"/>

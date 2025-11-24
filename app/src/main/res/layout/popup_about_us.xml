@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="20dp"
+    app:cardCornerRadius="16dp"
+    app:cardElevation="8dp"
+    app:cardBackgroundColor="#FFFFFF">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="About GMI"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:textColor="@color/primary_blue"
+                android:gravity="center"
+                android:layout_marginBottom="12dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Jalan Ilmiah, Taman Universiti,\n43000 Kajang, Selangor, Malaysia."
+                android:gravity="center"
+                android:textSize="13sp"
+                android:textColor="#555555"
+                android:layout_marginBottom="16dp"/>
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="180dp"
+                android:src="@drawable/gmi2"
+                android:scaleType="centerCrop"
+                android:layout_marginBottom="16dp"
+                android:contentDescription="GMI Campus"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="The German-Malaysian Institute (GMI) was established in 1991 as a joint venture between the Governments of Malaysia and Germany. Its objective is to provide advanced skills training in various engineering fields, combining theoretical knowledge with practical hands-on experience based on the German Education model.\n\nFounded by Majlis Amanah Rakyat (MARA) and the Malaysian-German Chamber of Commerce and Industry (MGCC), GMI moved to its current 75-acre campus in Kajang in 2008."
+                android:textSize="14sp"
+                android:lineSpacingExtra="4dp"
+                android:textColor="#333333"
+                android:justificationMode="inter_word"
+                android:layout_marginBottom="20dp"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#E0E0E0"
+                android:layout_marginBottom="16dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="CONTACT US"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="@color/primary_blue"
+                android:gravity="center"
+                android:layout_marginBottom="8dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Phone: +603-8921 9000\nEmail: marketing@gmi.edu.my\nWebsite: www.gmi.edu.my"
+                android:gravity="center"
+                android:textSize="14sp"
+                android:textColor="#555555"
+                android:lineSpacingExtra="3dp"
+                android:layout_marginBottom="20dp"/>
+
+            <Button
+                android:id="@+id/btnClosePopup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Close"
+                android:backgroundTint="@color/primary_blue"/>
+
+        </LinearLayout>
+    </ScrollView>
+</androidx.cardview.widget.CardView>
