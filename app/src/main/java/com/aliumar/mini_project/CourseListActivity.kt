@@ -32,6 +32,14 @@ class CourseListActivity : AppCompatActivity() {
 
         val courses = listOf(
             Course(
+                "German A-Level Preparatory Program (GAPP)",
+                "A specialized 22-month program established to prepare students for engineering studies at Universities of Applied Sciences (UAS) in Germany. The curriculum combines GCE A-Levels with intensive German language training (TestDaF) and pre-study practical training (Vorpraktikum)."
+            ),
+            Course(
+                "GMI-UTP Foundation Programme (GUFP)",
+                "A one-year foundation programme offered in strategic collaboration with Universiti Teknologi PETRONAS (UTP). Using the UTP foundation syllabus, this course qualifies graduates for direct entry into undergraduate engineering, science, and technology degree programmes at UTP."
+            ),
+            Course(
                 "Diploma in Software Engineering",
                 "Designed to develop competencies in the software development process, involving defect prevention and detection strategies to reduce risks and costs. Students will master software modelling, Android programming, and functional testing methods to meet global industry demands."
             ),
