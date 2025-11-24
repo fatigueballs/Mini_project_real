@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Mini_project</string>
+
+    <string name="course_list">COURSE LIST</string>
+    <string name="eligibility_checker">ELIGIBILITY\nCHECKER</string>
+    <string name="website">WEBSITE</string>
 </resources>
