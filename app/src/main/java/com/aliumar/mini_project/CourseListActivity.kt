@@ -8,7 +8,10 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.ListView
 import android.widget.TextView
+import androidx.activity.enableEdgeToEdge // Add this import
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.ViewCompat // Add this import
+import androidx.core.view.WindowInsetsCompat // Add this import
 
 class CourseListActivity : AppCompatActivity() {
 
@@ -16,9 +19,17 @@ class CourseListActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        enableEdgeToEdge() // Optional but recommended for consistency
         setContentView(R.layout.activity_course_list)
 
-        // Detailed course data based on GMI's official offerings
+        // --- ADD THIS BLOCK TO FIX THE HEADER ---
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(android.R.id.content)) { v, insets ->
+            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
+            insets
+        }
+        // ----------------------------------------
+
         val courses = listOf(
             Course(
                 "Diploma in Software Engineering",
@@ -49,27 +60,20 @@ class CourseListActivity : AppCompatActivity() {
         val listView: ListView = findViewById(R.id.courseListView)
         val adapter = CourseAdapter(this, courses)
         listView.adapter = adapter
-
-        // Remove default dividers since we are using cards with margins
         listView.divider = null
         listView.dividerHeight = 0
     }
 
-    // Custom Adapter to handle the card layout
     inner class CourseAdapter(context: Context, private val dataSource: List<Course>) :
         ArrayAdapter<Course>(context, R.layout.item_course, dataSource) {
 
         override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
             val view = convertView ?: LayoutInflater.from(context).inflate(R.layout.item_course, parent, false)
-
             val course = dataSource[position]
-
             val titleView = view.findViewById<TextView>(R.id.courseTitle)
             val descView = view.findViewById<TextView>(R.id.courseDescription)
-
             titleView.text = course.title
             descView.text = course.description
-
             return view
         }
     }
