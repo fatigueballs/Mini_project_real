@@ -30,6 +30,43 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:text="Select Program Level:"
+                android:textColor="#555555"
+                android:textSize="14sp"
+                android:layout_marginBottom="8dp"/>
+
+            <RadioGroup
+                android:id="@+id/rgProgramType"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="12dp">
+
+                <RadioButton
+                    android:id="@+id/rbDiploma"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Diploma"
+                    android:checked="true"
+                    android:layout_weight="1"/>
+
+                <RadioButton
+                    android:id="@+id/rbPreU"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Pre-U (GAPP/GUFP)"
+                    android:layout_weight="1"/>
+            </RadioGroup>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#E0E0E0"
+                android:layout_marginBottom="12dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:text="Select your SPM Grades:"
                 android:textColor="#555555"
                 android:textSize="14sp"
@@ -89,6 +126,23 @@
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:background="@android:drawable/btn_dropdown"
+                android:layout_marginBottom="12dp"/>
+
+            <TextView
+                android:id="@+id/tvOther2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="4th Best Subject"
+                android:textStyle="bold"
+                android:visibility="gone"
+                android:layout_marginBottom="4dp"/>
+
+            <Spinner
+                android:id="@+id/spinnerOther2"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:background="@android:drawable/btn_dropdown"
+                android:visibility="gone"
                 android:layout_marginBottom="12dp"/>
 
             <Button

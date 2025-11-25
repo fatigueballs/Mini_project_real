@@ -1,6 +1,8 @@
 package com.aliumar.mini_project
 
 import android.content.Context
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -8,10 +10,9 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.ListView
 import android.widget.TextView
-import androidx.activity.enableEdgeToEdge // Add this import
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat // Add this import
-import androidx.core.view.WindowInsetsCompat // Add this import
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
 
 class CourseListActivity : AppCompatActivity() {
 
@@ -19,16 +20,15 @@ class CourseListActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge() // Optional but recommended for consistency
         setContentView(R.layout.activity_course_list)
 
-        // --- ADD THIS BLOCK TO FIX THE HEADER ---
+        // --- HEADER FIX ---
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(android.R.id.content)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-        // ----------------------------------------
+        // ------------------
 
         val courses = listOf(
             Course(
@@ -70,6 +70,47 @@ class CourseListActivity : AppCompatActivity() {
         listView.adapter = adapter
         listView.divider = null
         listView.dividerHeight = 0
+
+        // Handle List Item Clicks for GAPP and GUFP
+        listView.setOnItemClickListener { _, _, position, _ ->
+            val course = courses[position]
+            when {
+                course.title.contains("GAPP") -> {
+                    // Open GAPP website
+                    val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://www.gmi.edu.my/pre-university-programme/german-a-level-preparatory-programme-gapp/"))
+                    startActivity(intent)
+                }
+                course.title.contains("GUFP") -> {
+                    // Open GUFP website
+                    val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://www.gmi.edu.my/gmi-utp-foundation-studies-programme/"))
+                    startActivity(intent)
+                }
+                course.title.contains("Software Engineering") -> {
+                    val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://www.gmi.edu.my/computer-and-information/"))
+                    startActivity(intent)
+                }
+                course.title.contains("Network Security") -> {
+                    val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://www.gmi.edu.my/computer-and-information/"))
+                    startActivity(intent)
+                }
+                course.title.contains("Mechatronics Engineering") -> {
+                    val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://www.gmi.edu.my/mechanical-engineering/"))
+                    startActivity(intent)
+                }
+                course.title.contains("Product Design & Manufacturing") -> {
+                    val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://www.gmi.edu.my/mechanical-engineering/"))
+                    startActivity(intent)
+                }
+                course.title.contains("Mechatronics Engineering") -> {
+                    val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://www.gmi.edu.my/mechanical-engineering/"))
+                    startActivity(intent)
+                }
+                course.title.contains("CNC Precision Technology") -> {
+                    val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://www.gmi.edu.my/mechanical-engineering/"))
+                    startActivity(intent)
+                }
+            }
+        }
     }
 
     inner class CourseAdapter(context: Context, private val dataSource: List<Course>) :
