@@ -5,8 +5,9 @@ import android.graphics.Color
 import android.net.Uri
 import android.os.Bundle
 import android.view.View
+import android.widget.ArrayAdapter
 import android.widget.Button
-import android.widget.EditText
+import android.widget.Spinner
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -26,26 +27,42 @@ class EligibilityActivity : AppCompatActivity() {
             insets
         }
 
-        val inputMath = findViewById<EditText>(R.id.inputMath)
-        val inputScience = findViewById<EditText>(R.id.inputScience)
-        val inputEnglish = findViewById<EditText>(R.id.inputEnglish)
-        val inputOther = findViewById<EditText>(R.id.inputOther)
+        // Initialize UI elements (Spinners instead of EditText)
+        val spinnerMath = findViewById<Spinner>(R.id.spinnerMath)
+        val spinnerScience = findViewById<Spinner>(R.id.spinnerScience)
+        val spinnerEnglish = findViewById<Spinner>(R.id.spinnerEnglish)
+        val spinnerOther = findViewById<Spinner>(R.id.spinnerOther)
+
         val btnCheck = findViewById<Button>(R.id.btnCheck)
         val txtResult = findViewById<TextView>(R.id.txtResult)
         val btnApply = findViewById<Button>(R.id.btnApply)
 
+        // define grades list
+        val grades = listOf("A+", "A", "A-", "B+", "B", "C+", "C", "D", "E", "G")
+
+        // Create adapter
+        val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, grades)
+
+        // Apply adapter to all spinners
+        spinnerMath.adapter = adapter
+        spinnerScience.adapter = adapter
+        spinnerEnglish.adapter = adapter
+        spinnerOther.adapter = adapter
+
         btnCheck.setOnClickListener {
-            val math = getGradeValue(inputMath.text.toString())
-            val science = getGradeValue(inputScience.text.toString())
-            val english = getGradeValue(inputEnglish.text.toString())
-            val other = getGradeValue(inputOther.text.toString())
+            // Get selected items from spinners
+            val math = getGradeValue(spinnerMath.selectedItem.toString())
+            val science = getGradeValue(spinnerScience.selectedItem.toString())
+            val english = getGradeValue(spinnerEnglish.selectedItem.toString())
+            val other = getGradeValue(spinnerOther.selectedItem.toString())
 
             // Logic:
-            // 1. Math <= 3 (Credit)
-            // 2. Science <= 3 (Credit)
-            // 3. Other <= 3 (Credit)
-            // 4. English <= 5 (Pass)
+            // 1. Math <= 3 (Credit: A to C)
+            // 2. Science <= 3 (Credit: A to C)
+            // 3. Other <= 3 (Credit: A to C)
+            // 4. English <= 5 (Pass: A to E)
 
+            // Note: In this logic, Credit implies C (value 3) or better.
             if (math <= 3 && science <= 3 && other <= 3 && english <= 5) {
                 txtResult.text = "Congratulations! You are ELIGIBLE."
                 txtResult.setTextColor(Color.parseColor("#008000")) // Green
@@ -69,14 +86,14 @@ class EligibilityActivity : AppCompatActivity() {
     }
 
     private fun getGradeValue(grade: String): Int {
-        val g = grade.trim().uppercase()
+        // Simplified logic since input is now controlled by Spinner
         return when {
-            g.startsWith("A") -> 1
-            g.startsWith("B") -> 2
-            g.startsWith("C") -> 3
-            g.startsWith("D") -> 4
-            g.startsWith("E") -> 5
-            else -> 6 // F or invalid
+            grade.startsWith("A") -> 1 // Covers A+, A, A-
+            grade.startsWith("B") -> 2 // Covers B+, B
+            grade.startsWith("C") -> 3 // Covers C+, C
+            grade.startsWith("D") -> 4
+            grade.startsWith("E") -> 5
+            else -> 6 // G or Fail
         }
     }
 }

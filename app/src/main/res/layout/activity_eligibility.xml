@@ -16,60 +16,86 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="24dp">
+            android:padding="16dp">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Check Eligibility"
-                android:textSize="24sp"
+                android:textSize="22sp"
                 android:textStyle="bold"
                 android:textColor="@color/primary_blue"
-                android:layout_marginBottom="16dp"/>
+                android:layout_marginBottom="8dp"/>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Enter your SPM Grades (e.g., A, B, C, D, E, F):"
-                android:layout_marginBottom="16dp"/>
+                android:text="Select your SPM Grades:"
+                android:textColor="#555555"
+                android:textSize="14sp"
+                android:layout_marginBottom="12dp"/>
 
-            <EditText
-                android:id="@+id/inputMath"
-                android:layout_width="match_parent"
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:hint="Mathematics Grade"
-                android:maxLength="2"
-                android:inputType="textCapCharacters"/>
+                android:text="Mathematics"
+                android:textStyle="bold"
+                android:layout_marginBottom="4dp"/>
 
-            <EditText
-                android:id="@+id/inputScience"
+            <Spinner
+                android:id="@+id/spinnerMath"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Science / Physics Grade"
-                android:maxLength="2"
-                android:inputType="textCapCharacters"/>
+                android:layout_height="48dp"
+                android:background="@android:drawable/btn_dropdown"
+                android:layout_marginBottom="8dp"/>
 
-            <EditText
-                android:id="@+id/inputEnglish"
-                android:layout_width="match_parent"
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:hint="English Grade"
-                android:maxLength="2"
-                android:inputType="textCapCharacters"/>
+                android:text="Science / Physics"
+                android:textStyle="bold"
+                android:layout_marginBottom="4dp"/>
 
-            <EditText
-                android:id="@+id/inputOther"
+            <Spinner
+                android:id="@+id/spinnerScience"
                 android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:background="@android:drawable/btn_dropdown"
+                android:layout_marginBottom="8dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:hint="3rd Best Subject Grade"
-                android:maxLength="2"
-                android:inputType="textCapCharacters"/>
+                android:text="English"
+                android:textStyle="bold"
+                android:layout_marginBottom="4dp"/>
+
+            <Spinner
+                android:id="@+id/spinnerEnglish"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:background="@android:drawable/btn_dropdown"
+                android:layout_marginBottom="8dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="3rd Best Subject"
+                android:textStyle="bold"
+                android:layout_marginBottom="4dp"/>
+
+            <Spinner
+                android:id="@+id/spinnerOther"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:background="@android:drawable/btn_dropdown"
+                android:layout_marginBottom="12dp"/>
 
             <Button
                 android:id="@+id/btnCheck"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
+                android:layout_marginTop="8dp"
                 android:text="Check Eligibility"
                 android:backgroundTint="@color/primary_blue"/>
 
@@ -77,7 +103,7 @@
                 android:id="@+id/txtResult"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
+                android:layout_marginTop="16dp"
                 android:textSize="18sp"
                 android:textAlignment="center"
                 android:textStyle="bold"/>
@@ -86,7 +112,7 @@
                 android:id="@+id/btnApply"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="12dp"
                 android:text="Apply Now"
                 android:backgroundTint="#008000"
                 android:visibility="gone"/>
